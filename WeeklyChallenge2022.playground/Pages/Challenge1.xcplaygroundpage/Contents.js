@@ -1,5 +1,3 @@
-import Foundation
-
 /*
  * Reto #1
  * ¿ES UN ANAGRAMA?
@@ -20,8 +18,21 @@ import Foundation
  *
  */
 
-func isAnagram(wordOne: String, wordTwo: String) -> Bool {
-    return wordOne.lowercased() == wordTwo.lowercased() ? false : wordOne.lowercased().sorted().elementsEqual(wordTwo.lowercased().sorted())
-}
+const isAnagrama = (sample, word) => {
+  const sampleArray = sample.split("");
+  let wordArray = word.split("");
 
-print(isAnagram(wordOne: "amor", wordTwo: "roma"))
+  sampleArray.forEach((letter) => {
+    const letterIdx = wordArray.findIndex(
+      (value) => letter.toLowerCase() == value.toLowerCase()
+    );
+
+    if (letterIdx === false) return false;
+
+    wordArray.splice(letterIdx, 1);
+  });
+
+  return wordArray.length == 0;
+};
+
+console.log("adan", "nada");
