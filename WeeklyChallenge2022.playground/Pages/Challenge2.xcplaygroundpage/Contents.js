@@ -1,5 +1,3 @@
-import Foundation
-
 /*
  * Reto #2
  * LA SUCESIÓN DE FIBONACCI
@@ -19,13 +17,13 @@ import Foundation
  *
  */
 
-var n0 = 0
-var n1 = 1
+let current = 0;
+let previous = 1;
 
-(1...50).forEach { _ in
-    print(n0)
+for (let index = 0; index < 50; index++) {
+  console.log(current);
 
-    let fib = n0 + n1
-    n0 = n1
-    n1 = fib
+  let temp = previous;
+  previous = current;
+  current = temp + current;
 }
