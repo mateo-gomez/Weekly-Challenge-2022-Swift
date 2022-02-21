@@ -1,5 +1,3 @@
-import Foundation
-
 /*
  * Reto #3
  * ¿ES UN NÚMERO PRIMO?
@@ -18,23 +16,25 @@ import Foundation
  *
  */
 
-func isPrime(number: Int) -> Bool {
-    
-    if number < 2 {
-        return false
-    }
-    
-    for i in 2 ..< number {
-        if number % i == 0 {
-            return false
-        }
-    }
-    
-    return true
-}
+const divisibleBy = (number, base) => number % base == 0;
 
-(1...100).forEach { number in
-    if isPrime(number: number) {
-        print(number)
+const isPrimo = (n) => {
+  if (n == 1) return false;
+
+  let result = true;
+
+  for (let index = 2; index < n; index++) {
+    if (divisibleBy(n, index)) {
+      result = false;
+      break;
     }
+  }
+
+  return result;
+};
+
+for (let number = 1; number <= 100; number++) {
+  if (isPrimo(number)) {
+    console.log(number);
+  }
 }
